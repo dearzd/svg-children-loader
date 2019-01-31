@@ -1,0 +1,24 @@
+{
+  "name": "svg-children-loader",
+  "version": "1.0.0",
+  "description": "A loader for webpack that enable extracting all child elements of svg file as a String.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dearzd/svg-children-loader.git"
+  },
+  "keywords": [
+    "svg",
+    "icon",
+    "children"
+  ],
+  "author": "Zhang Dong @dearzd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dearzd/svg-children-loader/issues"
+  },
+  "homepage": "https://github.com/dearzd/svg-children-loader#readme"
+}
