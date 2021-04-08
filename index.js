@@ -1,24 +1,23 @@
 const loaderUtils = require('loader-utils');
 
 module.exports = function (source) {
-  let options = loaderUtils.getOptions(this);
-  let svgStr = source;
+  const options = loaderUtils.getOptions(this);
+  const svgStr = source;
 
-  // find svg child html
-  let startMatch = /<svg(\s|\S)*?>/.exec(svgStr);
-  let endMatch = /<\/svg>/.exec(svgStr);
-  let childrenStr = svgStr.substr(startMatch.index + startMatch[0].length, endMatch.index);
+  const reg = /(<svg[\s|\S]*?>)((\s|\S)*)<\/svg>/;
 
-  let svg = {
-    childrenStr: childrenStr
+  const result = svgStr.match(reg);
+
+  const svg = {
+    childrenStr: result[2]
   };
 
   // extract attributes of svg element
   if (options) {
-    let { extractAttributes } = options;
+    const { extractAttributes } = options;
     if (Array.isArray(extractAttributes)) {
       extractAttributes.forEach(function(attrName) {
-        let attrMatch = new RegExp(attrName + '="((\\d|\\D)*?)"').exec(startMatch[0]);
+        const attrMatch = new RegExp(attrName + '="((\\d|\\D)*?)"').exec(result[1]);
         svg[attrName] = attrMatch && attrMatch[1];
       });
     }

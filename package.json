@@ -1,6 +1,6 @@
 {
   "name": "svg-children-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A loader for webpack that enable extracting all child elements of svg file as a String.",
   "main": "index.js",
   "scripts": {
